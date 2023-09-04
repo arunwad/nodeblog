@@ -10779,6 +10779,9 @@ header.masthead .post-heading .meta a {
   margin-bottom: 0.625rem;
 }
 .post-preview > a > .post-subtitle {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
   font-weight: 300;
   margin-bottom: 0.625rem;
 }
