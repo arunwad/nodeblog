@@ -1,8 +1,16 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema;
 const BlogPostSchema = new Schema({
-    title: String,
-    body: String,
+    title: {
+        type: String,
+        required: [true,'Please provide a unique title'],
+        unique: true
+    },
+    body: {
+        type: String,
+        required: [true,'Please provide some content for this post'],
+        unique: true
+    },
     userid:{
        type: mongoose.Schema.Types.ObjectId,
        ref: 'User',
@@ -12,7 +20,11 @@ const BlogPostSchema = new Schema({
         type: Date,
         default: new Date()
     },
-    image: String
+    image: {
+        type: String,
+        required: [true,'Please add an image'],
+        unique: true
+    }
 });
 const BlogPost = mongoose.model('BlogPost', BlogPostSchema);
 module.exports = BlogPost
